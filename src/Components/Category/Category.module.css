@@ -7,7 +7,7 @@
 .category img {
   max-width: 300px;
   object-fit: contain;
-  max-height: 320px;
+  max-height: 250px;
   padding: 5px 10px;
 }
 .category a {
