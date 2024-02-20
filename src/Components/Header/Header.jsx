@@ -1,21 +1,24 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import classes from "./Header.module.css"
 import LowerHeader from "./LowerHeader"
 import { Link } from 'react-router-dom';
+import { DataContext } from '../DataProvider/DataProvider';
  
 
 
 const Header = () => {
+   const[{cart},dispatch] =useContext(DataContext)
+   
   return (
    < >
     <section >
      <div className={classes.header_container}>
         <div className={classes.logo_container}>
              
-            {/* logo */}
+             
             <Link to="/">
                 <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo" />
             </Link>
@@ -62,7 +65,7 @@ const Header = () => {
          {/* cart */}
          <Link to='/cart' className={classes.cart}>
             <BiCart size={25}/>
-            <span>0</span>
+            <span>{cart.length}</span>
             
          </Link>
  

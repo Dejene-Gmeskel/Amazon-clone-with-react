@@ -26,7 +26,8 @@ const ProductDetails = () => {
 
   return (
     <Layout>
-      {isLoading ? <Loader /> :product && <ProductCard product={product} />}
+      {isLoading ? <Loader /> :product && <ProductCard product={product} flex={true} renderDesc = {true}/>}
+      
     </Layout>
   );
 };
