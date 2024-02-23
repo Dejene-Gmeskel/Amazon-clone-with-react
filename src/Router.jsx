@@ -9,23 +9,16 @@ import Results from './Pages/Results/Results'
 import ProductDetails from './Pages/ProductDetails/ProductDetails'
 const Routering = () => {
   return (
-   
-    
-    
     <Router>
       <Routes>
-
-       <Route path="/" element ={ <Landing/>}/>
-       <Route path="auth" element ={ <SignUp/>}/>
-       <Route path="payments" element ={ <Payment/>}/>
+       <Route path="/" element ={<Landing/>}/>
+       <Route path="auth" element ={<SignUp/>}/>
+       <Route path="payments" element ={<Payment/>}/>
        <Route path="orders" element ={ <Orders/>}/>
-       <Route path="/category/:categoryName" element ={ <Results/>}/>
-       <Route path="/products/:productId" element ={ <ProductDetails/>}/>
-       <Route path="cart" element ={ <Cart/>}/>
-
-
+       <Route path="/category/:categoryName" element ={<Results/>}/>
+       <Route path="/products/:productId" element ={<ProductDetails/>}/>
+       <Route path="cart" element ={<Cart/>}/>
       </Routes>
-
     </Router>
   )
 }
