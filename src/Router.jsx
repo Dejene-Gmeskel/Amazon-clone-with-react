@@ -13,7 +13,7 @@ const Routering = () => {
       <Routes>
        <Route path="/" element ={<Landing/>}/>
        <Route path="auth" element ={<Auth/>}/>
-       <Route path="payments" element ={<Payment/>}/>
+       <Route path="/cart/:payment" element ={<Payment/>}/>
        <Route path="orders" element ={ <Orders/>}/>
        <Route path="/category/:categoryName" element ={<Results/>}/>
        <Route path="/products/:productId" element ={<ProductDetails/>}/>
