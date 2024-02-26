@@ -11,6 +11,7 @@ import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
 const stripePromise = loadStripe('pk_test_51OngRxF0YRBRcn68jUehKRu42fxUZWJVBMC5FWQteXUiss2MyuW5sTugMxnqynVBPySKuz2lKf05VECDZEIgqrrV00yeV3aJ5k');
+
 const Routering = () => {
   return (
     <Router>
@@ -32,4 +33,4 @@ const Routering = () => {
   )
 }
 
-export default Routering
+export default Routering;
