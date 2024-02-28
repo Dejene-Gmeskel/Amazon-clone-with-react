@@ -8,7 +8,7 @@ import CurrencyFormat from '../../Components/CurrencyFormat/CurrencyFormat';
 import { axiosInstance } from '../../Api/Axios';
 import { ClipLoader } from 'react-spinners';
 import { db } from '../../Utility/FireBase';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Payment = () => {
   const [{ cart,user }] = useContext(DataContext); 
@@ -22,6 +22,8 @@ const Payment = () => {
   const stripe = useStripe();
   const elements = useElements();
   const navigate =useNavigate()
+ 
+ 
   const [cardError,setCardError]=useState(null)
   const [processing,setProcessing]=useState(false)
   const handleChange=(e)=>{
@@ -72,7 +74,7 @@ const Payment = () => {
         <div className={classes.flex}>
         {user && (
           <div>
-         <h3>Delivery Address</h3>
+          <h3>Delivery Address</h3>
           <div>
          <div>{user?.email}</div>
         <div>Dj React Dev Lane</div>

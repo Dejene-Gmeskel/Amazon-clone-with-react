@@ -1,6 +1,6 @@
 import React, {useState,useContext}from 'react'
 import classes from "./Auth.module.css"
-import {Link,useNavigate} from "react-router-dom"
+import {Link,useNavigate,useLocation} from "react-router-dom"
 import {auth} from "../../Utility/FireBase"
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth"
 import {DataContext}from "../../Components/DataProvider/DataProvider"
@@ -12,6 +12,8 @@ const Auth = () => {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState('')
   const [error,setError]=useState("")
+  const navStateData= useLocation()
+  console.log(navStateData)
   const [loading,setLoading]=useState({
     signIn:false,
     signUp:false
@@ -23,8 +25,7 @@ const Auth = () => {
     e.preventDefault()
     console.log(e.target.name)
     if(e.target.name ==='signIn'){
-      setLoading({...loading,signIn:true})
-      navigate("/")
+     setLoading({...loading,signIn:true})
      signInWithEmailAndPassword(auth,email,password).then((userInfo)=>{
     
       dispatch({
@@ -32,13 +33,14 @@ const Auth = () => {
         user: userInfo.user
       });
       setLoading({...loading,signIn:false})
+      navigate(navStateData?.state?.redirect || "/")
+      
     }).catch((err)=>{
       setError(err.message)
       setLoading({...loading,signIn:false})
     })
     }else{
       setLoading({...loading,signUp:true})
-      navigate("/")
       createUserWithEmailAndPassword(auth,email,password).then((userInfo)=>{
     
         dispatch({
@@ -46,6 +48,7 @@ const Auth = () => {
           user: userInfo.user
         });
         setLoading({...loading,signUp:false})
+        navigate(navStateData?.state?.redirect || "/")
       }).catch((err)=>{
         setError(err.message)
         setLoading({...loading,signUp:false})
@@ -61,6 +64,11 @@ const Auth = () => {
    </Link>
 <div className={classes.login_container}>
 <h1>Sign-in</h1>
+{navStateData?.state?.msg && (
+  <small style={{padding:"5px",textAlign:"center",color:"red",fontWeight:"bold"}}>{navStateData.state.msg}</small>
+)
+
+}
 <form action="">
 <div>
 <label htmlFor="email">E-mail</label>

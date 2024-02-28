@@ -19,14 +19,18 @@ const Routering = () => {
       <Routes>
        <Route path="/" element ={<Landing/>}/>
        <Route path="auth" element ={<Auth/>}/>
-       <Route path="/cart/:payment" element ={
+       <Route path="/cart/payment" element ={
         <ProtectedRoute msg={"You must log in to Pay"} redirect={"/payment"}>
           <Elements stripe={stripePromise}>
           <Payment/>
        </Elements>
         </ProtectedRoute>
        }/>
-       <Route path="orders" element ={ <Orders/>}/>
+       <Route path="orders" element ={
+        <ProtectedRoute msg={"You must log in to get your orders"} redirect={"/orders"}>
+          <Orders/>
+        </ProtectedRoute>
+        }/>
        <Route path="/category/:categoryName" element ={<Results/>}/>
        <Route path="/products/:productId" element ={<ProductDetails/>}/>
        <Route path="cart" element ={<Cart/>}/>

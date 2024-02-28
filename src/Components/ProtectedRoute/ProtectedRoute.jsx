@@ -9,12 +9,12 @@ const ProtectedRoute = ({children,msg,redirect}) => {
 
     useEffect(()=>{
        if(!user) {
-        navigate("/auth", {state:{msg,redirect}})
+        navigate("/auth", {state:{ msg, redirect}})
        }
 
     },[user])
   return (
-    <div>ProtectedRoute</div>
+    <div>{children}</div>
   )
 }
 
