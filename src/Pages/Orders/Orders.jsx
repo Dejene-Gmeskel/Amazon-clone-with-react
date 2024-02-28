@@ -35,6 +35,10 @@ db.collection("users").doc(user.uid).collection("orders").orderBy("created","des
     <section className={classes.container}>
       <div className={classes.orders_container}>
         <h2>Your Orders</h2>
+        {orders.length == 0 && <div>
+          Apologies, but currently you do not have any orders.
+        </div>
+        }
         <div>{
           orders?.map((eachOrder, i)=>{
             return (

@@ -19,3 +19,6 @@
 .orders_container div {
   height: auto !important;
 }
+.orders_container > div {
+  padding: 12px;
+}

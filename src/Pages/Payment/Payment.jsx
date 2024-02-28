@@ -8,10 +8,11 @@ import CurrencyFormat from '../../Components/CurrencyFormat/CurrencyFormat';
 import { axiosInstance } from '../../Api/Axios';
 import { ClipLoader } from 'react-spinners';
 import { db } from '../../Utility/FireBase';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Type } from '../../Utility/ActionType';
 
 const Payment = () => {
-  const [{ cart,user }] = useContext(DataContext); 
+  const [{ cart,user },dispatch] = useContext(DataContext); 
   const totalItem = cart?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -55,6 +56,8 @@ const Payment = () => {
         amount:paymentIntent.amount,
         created:paymentIntent.created
       })
+      // clearing the cart
+       dispatch({type:Type.EMPTY_CART})
       setProcessing(false)
       navigate("/orders",{state:{msg:"You have placed a new order"}})
     } catch (error) {
@@ -71,9 +74,9 @@ const Payment = () => {
       {/* payment method */}
       <section className={classes.payment}>
         {/* address */}
-        <div className={classes.flex}>
+        <div>
         {user && (
-          <div>
+          <div className={classes.flex}>
           <h3>Delivery Address</h3>
           <div>
          <div>{user?.email}</div>
