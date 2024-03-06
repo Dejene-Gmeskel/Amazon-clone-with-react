@@ -40,7 +40,7 @@ const Payment = () => {
         method: "POST",
         url: `/payment/create?total=${total * 100}`
       });
-      console.log(response.data);
+      // console.log(response.data);
       const clientSecret = response.data?.clientSecret;
   
       const {paymentIntent} = await stripe.confirmCardPayment(clientSecret, {

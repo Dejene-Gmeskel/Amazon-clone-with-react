@@ -13,7 +13,7 @@ const Auth = () => {
   const [password,setPassword]=useState('')
   const [error,setError]=useState("")
   const navStateData= useLocation()
-  console.log(navStateData)
+  // console.log(navStateData)
   const [loading,setLoading]=useState({
     signIn:false,
     signUp:false
@@ -89,7 +89,7 @@ const Auth = () => {
 
 </form>
 <p>
-  By sigining in you agree to the AMAZON TAKE CLONE conditions of use & sale. Please see our Privacy Notice,our cookies Notice and our Interest-Based Ads Notice.
+  By signing in you agree to the AMAZON TAKE CLONE conditions of use & sale. Please see our Privacy Notice,our cookies Notice and our Interest-Based Ads Notice.
 </p>
 <button type='submit' onClick={authHandler} name='signUp' className={classes.login_registerButton}>
   {
