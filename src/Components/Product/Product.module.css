@@ -39,10 +39,10 @@
 }
 .products_container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  max-width: 1450px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  max-width: 80%;
   margin: 100px auto 100px auto;
-  gap: 50px;
+  gap: 40px;
   justify-items: center;
 }
 

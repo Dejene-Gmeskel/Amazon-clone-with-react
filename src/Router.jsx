@@ -20,7 +20,7 @@ const Routering = () => {
        <Route path="/" element ={<Landing/>}/>
        <Route path="auth" element ={<Auth/>}/>
        <Route path="/cart/:payment" element ={
-        <ProtectedRoute msg={"You must log in to Pay"} redirect={"/payment"}>
+        <ProtectedRoute msg={"You must log in to Pay"} redirect={"/cart/:payment"}>
           <Elements stripe={stripePromise}>
           <Payment/>
        </Elements>

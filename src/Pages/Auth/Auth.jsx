@@ -23,11 +23,10 @@ const Auth = () => {
   const navigate = useNavigate()
   const authHandler = async(e)=> {
     e.preventDefault()
-    console.log(e.target.name)
+    // console.log(e.target.name)
     if(e.target.name ==='signIn'){
      setLoading({...loading,signIn:true})
      signInWithEmailAndPassword(auth,email,password).then((userInfo)=>{
-    
       dispatch({
         type: Type.SET_USER,
         user: userInfo.user
